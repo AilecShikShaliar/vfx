@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿
+using UnityEditor;
 using UnityEngine;
 
 namespace PathCreation.Examples
@@ -23,13 +24,25 @@ namespace PathCreation.Examples
             Reset();
         }
 
+        void OnEnable()
+        {
+            Reset();
+        }
+
         void Update()
         {
-            if (pathCreator != null)
+            if (pathCreator != null && !isfinished)
             {
                 distanceTravelled += speed * Time.deltaTime;
+
                 transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
                 transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
+
+                if (distanceTravelled >= pathCreator.path.length)
+                {
+                    distanceTravelled = pathCreator.path.length;
+                    isfinished = true;
+                }
             }
             
         }
@@ -43,18 +56,8 @@ namespace PathCreation.Examples
 
         private void Reset()
         {
-            if ( distanceTravelled != 0)
-            {
-                isfinished = false;
-               
-            }
-            else
-            {
-                isfinished = true;
-                distanceTravelled = 0;
-
-            }
-           
+            distanceTravelled = 0;
+            isfinished = false;
         }
 
     }
