@@ -8,7 +8,13 @@ public class AnimationController : MonoBehaviour
     public UnityEvent event03;
     public UnityEvent event04;
     public UnityEvent event05;
-
+    public UnityEvent event06;
+    public UnityEvent event07;
+    public UnityEvent event08;
+    public UnityEvent event09;
+    public UnityEvent event10;
+    public UnityEvent event11;
+   
     public void RunEvent01()
     {
         event01.Invoke();
@@ -29,6 +35,33 @@ public class AnimationController : MonoBehaviour
     {
         event05.Invoke();
     }
+     public void RunEvent06()
+    {
+        event06.Invoke();
+    }
+
+      public void RunEvent07()
+    {
+        event07.Invoke();
+    }
+      public void RunEvent08()
+    {
+        event08.Invoke();
+    }
+      public void RunEvent09()
+    {
+        event09.Invoke();
+    }
+       public void RunEvent10()
+    {
+        event10.Invoke();
+    }
+       public void RunEvent11()
+    {
+        event11.Invoke();
+    }
+
+
 
 
 
